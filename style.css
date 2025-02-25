@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css?family=Meie+Script|Shadows+Into+Light|Arvo|Monda');
+html, body {
+    overflow-x: hidden; /* ปิดการเลื่อนซ้าย-ขวา */
+    overflow-y: auto;   /* เปิดให้เลื่อนขึ้น-ลงตามปกติ */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Monda', sans-serif;
+
+}
+
+.banner_main {
+    font-family: 'Monda', sans-serif;
+    background-image: url('img/b71.jpg'); /* Replace with your image URL */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 700px;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 20px;
+    display: grid;
+    top: 0;
+}
+.container_nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    align-items: center;
+    width: max-content;;
+    height: 150px; /* ความสูงเริ่มต้น */
+    padding: 10px 20px;
+    border-bottom: 2px solid #ffffff;
+    background: rgba(0, 0, 0, 0); /* เริ่มต้นโปร่งใส */
+    transition: all 0.31s ease-in-out;
+}
+
+/* เมื่อมีคลาส .scrolled (เลื่อนลง) */
+.container_nav.scrolled {
+    height: 80px; /* ลดความสูง */
+    border-bottom: 0;
+    width: 100%;
+    background: rgba(11, 167, 225, 0.7); /* เพิ่มพื้นหลังที่มี opacity */
+    z-index: 9000;
+}
+
+
+.logo a{
+    text-decoration : none;
+    color : #ffffff;
+    font-weight : bold;
+    font-size : 20px;
+    margin-left : 0px;
+    cursor : pointer;
+}
+
+.nav a{
+    text-decoration : none;
+    padding-bottom : 2px;
+    margin-right : 95px;
+    color : #ffffff;
+    font-weight : 550;
+    position : relative;
+    cursor : pointer;
+    margin-left : 70px;
+}
+
+.nav a::before{
+    position : absolute;
+    content : '';
+    top: 100%;
+    left : 0;
+    height : 2px;
+    width : 0%;
+    background : #ffffff;
+    transition : all ease 0.4s;
+}
+
+.nav a:hover::before{
+    width : 100%;
+}
+.nav a:hover{
+    color: white;
+}
+.block_text {
+    font-family: 'Monda', sans-serif;
+    width: 60%;
+    padding-top:290px;
+    padding-left: 37px;
+}
+
+.banner_main h1 {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    opacity: 0; /* เริ่มจากไม่มีความชัดเจน */
+    transform: translateY(30px); /* ย้ายไปด้านล่าง */
+    animation: fadeUp 2s ease-out forwards; /* เริ่มแอนิเมชัน */
+}
+
+.description {
+    color: white;
+    font-size: 1.2rem;
+    max-width: 80%; /* Limit width for readability */
+    line-height: 1.6; /* Line height for spacing between lines */
+    opacity: 0; /* เริ่มจากไม่มีความชัดเจน */
+    transform: translateY(30px); /* ย้ายไปด้านล่าง */
+    animation: fadeUp 2s ease-out forwards; /* เริ่มแอนิเมชัน */
+}
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.services-section {
+    padding-top: 180px;
+    padding-bottom: 50px;
+}
+
+/* เพิ่มเอฟเฟกต์ Fade Up */
+.service-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 2s ease-out forwards;
+    transition: transform 0.3s ease;
+}
+
+/* Keyframes สำหรับ Fade Up */
+@keyframes fadeUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ข้อความในหัวข้อของแต่ละบริการ */
+.service-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* ข้อความภายในแต่ละการ์ด */
+.service-description {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.service-card-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 18rem;
+    border: none;
+}
+
+.card-body {
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+.card-link {
+    text-decoration: none;
+}
+
+.card i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    color: #007bff;
+}
+.service-card:nth-child(1) {
+    animation-delay: 0.5s; /* การ์ดแรก */
+}
+.service-card:nth-child(2) {
+    animation-delay: 1s; /* การ์ดที่สอง */
+}
+.service-card:nth-child(3) {
+    animation-delay: 1.5s; /* การ์ดที่สาม */
+}
+.service-card:nth-child(4) {
+    animation-delay: 2s; /* การ์ดที่สี่ */
+}
+.service-card:hover {
+    transform: translateY(-5px); /* ยกการ์ดขึ้นเล็กน้อย */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+    background-color: #f7f7f7; /* เปลี่ยนสีพื้นหลัง */
+    border-color: #007bff; /* ขอบสีน้ำเงินเมื่อ hover */
+}
+
+.service-card:hover .card i {
+    color: #007bff; /* เปลี่ยนสีไอคอนเมื่อ hover */
+}
+.service-web-design {
+    background-image: url("img/58992.png");  /* ตรวจสอบเส้นทางให้ถูกต้อง */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    margin-top: 200px;
+    width: 100%;
+    height: 1220px;
+    color: white;
+    padding: 20px;
+}
+.ws15 {
+    font-family: 'Brush Script MT', cursive;
+    color: #5277f7;
+    position: absolute;
+    margin-left: 180px;
+    margin-right: 0;
+    font-size: 8rem;
+    object-fit: cover;
+    margin-top: 390px;
+    opacity: 0; /* เริ่มต้นให้โปร่งใส */
+    transform: translateY(20px); /* เริ่มต้นให้เลื่อนลงเล็กน้อย */
+    transition: all 0.8s ease-out;
+}
+
+/* เมื่อ div ปรากฏบนหน้าจอ ให้เพิ่มคลาสนี้ */
+.ws15.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card_img {
+    position: relative;
+    width: 3000px; /* ขนาดของการ์ด */
+    height: 214px; /* ขนาดของการ์ด */
+    perspective: 1000px; /* สร้างมุมมองแบบ 3D */
+    margin-left: auto;
+    margin-right: 0;
+    margin-top: 200px;
+    left: -260px
+}
+.img_c {
+    width: 25%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.5s ease, box-shadow 0.3s ease; /* สร้างการเคลื่อนไหวเมื่อ hover */
+}
+
+.ba1 {
+    transform: rotate(10deg); /* ทำให้ภาพแรกเริ่มเอียง */
+}
+
+.card_img:hover .img_c {
+    transform: rotate(0deg); /* เมื่อ hover จะทำให้ภาพตรง */
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.2); /* เพิ่มเงาเมื่อ hover */
+}
+
+.ba2 {
+    transform: rotate(-10deg); /* ทำให้ภาพที่สองเริ่มเอียงในทิศทางตรงข้าม */
+}
+.service-web-design-text{
+    margin: 20px; /* เพิ่ม margin รอบๆ เพื่อให้ไม่ชิดขอบ */
+    text-align: center;
+    display: block; /* ใช้ flexbox */
+    justify-content: center; /* จัดกึ่งกลางแนวนอน */
+    align-items: center; /* จัดกึ่งกลางแนวตั้ง */
+    height: 100%; /* ให้ความสูงเต็มเพื่อจัดแนวตั้ง */
+    padding: 20px; /* เพิ่ม padding เพื่อให้เนื้อหาห่างจากขอบ */
+}
